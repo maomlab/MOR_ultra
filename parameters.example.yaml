@@ -1,0 +1,30 @@
+---
+date_code: 20251009
+web_tokens:
+    user_agent: <EMAIL>
+    gs4_auth_cache: ".secrets"
+    gs4_auth_email: <EMAIL>
+cluster_info:
+    cluster_type: "SLURM"
+    slurm_account: SLURM_ACCOUNT
+    slurm_mail_user: SLURM_EMAIL
+    slurm_partition: SLURM_PARTITION   
+source_data:
+    IUPHAR:
+        uniprot_mapping_url: "http://www.guidetopharmacology.org/DATA/GtP_to_HGNC_mapping.csv"
+        uniprot_mapping_path: "data/IUPHAR/dump/GtP_to_UniProt_mapping.csv"
+        targets_url: "http://www.guidetopharmacology.org/DATA/targets_and_families.csv"
+        targets_path: "data/IUPHAR/dump/ligand_id_mapping.csv"
+        ligands_url: "http://www.guidetopharmacology.org/DATA/ligands.csv"
+        ligands_path: "data/IUPHAR/dump/ligands.csv"
+        ligand_id_mapping_url: "https://www.guidetopharmacology.org/DATA/ligand_id_mapping.csv"
+        ligand_id_mapping_path: "hdata/IUPHAR/dump/ligand_id_mapping.csv"
+        peptides_url: "http://www.guidetopharmacology.org/DATA/peptides.csv"
+        peptides_path: "data/IUPHAR/dump/peptides.csv"
+        interactions_url: "http://www.guidetopharmacology.org/DATA/interactions.csv"
+        interactions_path: "data/IUPHAR/dump/interactions.csv"
+        gtp_rfd_url: "https://www.guidetopharmacology.org/DATA/rdf/2025.2/gtp-rdf.n3"
+        gtp_rfd_path: "https://www.data/IUPHAR/dump/gtp-rdf.n3"
+    KeBOB:
+        google_sheets_url: "https://docs.google.com/spreadsheets/d/18Bptm8MlUOZMUB9GPsEgJzbcGCvtEg9d7PWpomdJTs8/edit?gid=2071146896#gid=2071146896"
+---

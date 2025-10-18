@@ -1,5 +1,8 @@
 
 library(rcrossref)
+library(googlesheets4)
+
+parameters <- yaml::read_yaml("parameters.yaml")
 
 
 intermediate_path <- "intermediate/01.1_gather_KeBOB"
@@ -8,9 +11,21 @@ if (!dir.exists(intermediate_path)) {
   dir.create(intermediate_path)
 }
 
+
+
+# cache authentication in .secrets/
+# Locally (or at least somewhere with a web browser):
+# options(gargle_oauth_cache = ".secrets")
+# googlesheets4::gs4_auth()
+# then copy the authentication to 
+
+googlesheets4::gs4_auth(
+    cache = parameters$web_tokens$gs4_auth_cache,
+    email = parameters$web_tokens$gs4_auth_email)
+
 # References
 KeBOB_references <- googlesheets4::read_sheet(
-  "https://docs.google.com/spreadsheets/d/18Bptm8MlUOZMUB9GPsEgJzbcGCvtEg9d7PWpomdJTs8/edit?gid=2071146896#gid=2071146896",
+  ss = parameters$source_data$KeBOB$google_sheets_url,
   sheet = "References") |>
   dplyr::mutate(
     DOI = Reference |> stringr::str_extract("[(][^,]+, [^,]+, (.+)[)]$", group = 1),

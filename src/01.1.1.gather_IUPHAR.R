@@ -14,47 +14,47 @@ if (!dir.exists(staging_directory)) {
 #########################
 HGNC_mapping_fname <- paste0(staging_directory, "/GtP_to_HGNC_mapping.csv")
 httr::GET(
-  url="http://www.guidetopharmacology.org/DATA/GtP_to_HGNC_mapping.csv",
+  url = "http://www.guidetopharmacology.org/DATA/GtP_to_HGNC_mapping.csv",
   httr::write_disk(HGNC_mapping_fname, overwrite=TRUE))
 
 uniprot_mapping_fname <- paste0(staging_directory, "/GtP_to_UniProt_mapping.csv")
 httr::GET(
-  url="http://www.guidetopharmacology.org/DATA/GtP_to_UniProt_mapping.csv",
+  url = "http://www.guidetopharmacology.org/DATA/GtP_to_UniProt_mapping.csv",
   httr::write_disk(uniprot_mapping_fname, overwrite=TRUE))
 
 
 targets_fname <- paste0(staging_directory, "/targets_and_families.csv")
 httr::GET(
-  url="http://www.guidetopharmacology.org/DATA/targets_and_families.csv",
+  url = "http://www.guidetopharmacology.org/DATA/targets_and_families.csv",
   httr::write_disk(targets_fname, overwrite=TRUE))
 
 ligands_fname <- paste0(staging_directory, "/ligands.csv")
 httr::GET(
-  url="http://www.guidetopharmacology.org/DATA/ligands.csv",
+  url = "http://www.guidetopharmacology.org/DATA/ligands.csv",
   httr::write_disk(ligands_fname, overwrite=TRUE))
 
 ligand_id_mapping_fname <- paste0(staging_directory, "/ligand_id_mapping.csv")
 httr::GET(
-  url="https://www.guidetopharmacology.org/DATA/ligand_id_mapping.csv",
+  url = "https://www.guidetopharmacology.org/DATA/ligand_id_mapping.csv",
   httr::write_disk(ligand_id_mapping_fname, overwrite=TRUE))
 
 
 peptides_fname <- paste0(staging_directory, "/peptides.csv")
 httr::GET(
-  url="http://www.guidetopharmacology.org/DATA/peptides.csv",
+  url = "http://www.guidetopharmacology.org/DATA/peptides.csv",
   httr::write_disk(peptides_fname, overwrite=TRUE))
 
 interactions_fname <- paste0(staging_directory, "/interactions.csv")
 httr::GET(
-  url="http://www.guidetopharmacology.org/DATA/interactions.csv",
+  url = "http://www.guidetopharmacology.org/DATA/interactions.csv",
   httr::write_disk(interactions_fname, overwrite=TRUE))
 
 
 
 gtp_rdf_fname <- paste0(staging_directory, "/gtp-rdf.n3")
 httr::GET(
-  url="https://www.guidetopharmacology.org/DATA/rdf/2025.2/gtp-rdf.n3",
-  httr::write_disk(gtp_rdf_fname, overwrite=TRUE))
+  url = "https://www.guidetopharmacology.org/DATA/rdf/2025.2/gtp-rdf.n3",
+  httr::write_disk(gtp_rdf_fname, overwrite = TRUE))
 
 
 gtpo <- rdflib::rdf_parse("data/IUPHAR/dump/gtp-rdf.n3", format = "turtle")

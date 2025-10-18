@@ -8,7 +8,10 @@ revdep
 ~\$*
 \#*
 \.\#*
+.secrets
+.future
 
+parameters.yaml
 data/
 intermediate/
 product/
